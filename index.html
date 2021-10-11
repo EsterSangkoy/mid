@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- untuk link ke CSS dan icon nya -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  <title>MID EXAM</title>
+</head>
+<body>
+  <!-- Untuk Navigasinya -->
+  <nav class="py-4 fs-5 navbar navbar-expand-lg text-white navbar-dark bg-primary bg-gradient ">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-4" href="index.html"><i class="fab fa-js-square"></i> Student Management MiniApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+    <h1><b>Student Management</b></h1>
+    <h1>MiniApp</h1>
+
+    <!-- untuk Formnya -->
+    <div class="row pt-4">
+      <div class="col-6">
+        <h4><b>Add Student</b></h4>
+        <button class="btn btn-primary" onclick="show()">Hide Form Add New Student</button>
+        <form class="mt-2" id="formStudent">
+          <div class="mb-5" id="inputId">
+            <label for="idStudent" class="form-label">Student ID (NIM)</label>
+            <input type="text" class="form-control" id="idStudent">
+          </div>
+
+          <div class="mb-3" id="inputName">
+            <label for="fullName" class="form-label">Student Name</label>
+            <input type="text" class="form-control" id="fullName">
+          </div>
+          
+          <div id="form-check">
+            <input type="radio" name="flexRadioDefault" id="genderMale" value="Male">
+            <label for="genderMale">Male</label>
+            <input type="radio" name="flexRadioDefault" id="genderFemale" value="Female">
+            <label for="genderFemale">Female</label>
+          </div>
+          
+          <div class="list mt-3 mb-3">
+              <p class="mb-2">Select Faculty</p>
+              <select id="Faculty" class="form-select" aria-label="Default select example">
+                  <option selected>SELECT FACULTY</option>
+                  <option class="listF" value="Pascasarjana">Pascasarjana</option>
+                  <option class="listF" value="Fakultas Filsafat">Fakultas Filsafat</option>
+                  <option class="listF" value="Fakultas Keguruan dan Ilmu Pendidikan">Fakultas Keguruan dan Ilmu Pendidikan</option>
+                  <option class="listF" value="Fakultas Ekonomi dan Bisnis">Fakultas Ekonomi dan Bisnis</option>
+                  <option class="listF" value="Fakultas Pertanian">Fakultas Pertanian</option>
+                  <option class="listF" value="Fakultas Ilmu Komputer">Fakultas Ilmu Komputer</option>
+                  <option class="listF" value="Fakultas Keperawatan">Fakultas Keperawatan</option>
+                  <option class="listF" value="Akademi Sektretaris Manajemen Indonesia Klabat">Akademi Sektretaris Manajemen Indonesia Klabat</option>
+              </select>
+          </div>
+
+          <div class="list mb-3">
+            <p class="mb-2">Select Prodi</p>
+            <select id="listProdi" class="form-select" aria-label="Default select example">
+                <option selected>SELECT PRODI</option>
+                <option class="list-prodi" value="Agroteknologi">Agroteknologi</option>
+                <option class="list-item" value="Akuntansi">Akuntansi</option>
+                <option class="list-item" value="Ilmu Filsafat">Ilmu Filsafat</option>
+                <option class="list-item" value="Informatika">Informatika</option>
+                <option class="list-item" value="Keperawatan">Keperawatan</option>
+                <option class="list-item" value="Magister Manajemen">Magister Manajemen</option>
+                <option class="list-item" value="Magister Teologi">Magister Teologi</option>
+                <option class="list-item" value="Manajemen">Manajemen</option>
+                <option class="list-item" value="Pendidikan Agama">Pendidikan Agama</option>
+                <option class="list-item" value="Pendidikan Bahasa Inggris">Pendidikan Bahasa Inggris</option>
+                <option class="list-item" value="Pendidikan Ekonomi">Pendidikan Ekonomi</option>
+                <option class="list-item" value="Pendidikan Luar Sekolah">Pendidikan Luar Sekolah</option>
+                <option class="list-item" value="Profesi Ners">Profesi Ners</option>
+                <option class="list-item" value="Sekretaris (D3)">Sekretaris (D3)</option>
+                <option class="list-item" value="Sistem Informasi">Sistem Informasi</option>
+            </select>
+          </div>
+          <div class="mt-2 d-grid gap-2">
+            <button id="sumbitForm" type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          </form>
+         
+      </div>
+
+      <!-- untuk bagian filternya -->
+      <div class="col-6">
+        <h4>Filter Students by</h4>
+        <div class="list mt-3 mb-3">
+          <p class="mb-2">Faculty</p>
+          <select id="filterFaculty" class="form-select" aria-label="Default select example">
+              <option selected>SELECT FACULTY</option>
+              <option class="listF" value="Akademi Sektretaris Manajemen Indonesia Klabat">Akademi Sektretaris Manajemen Indonesia Klabat</option>
+              <option class="listF" value="Fakultas Ekonomi dan Bisnis">Fakultas Ekonomi dan Bisnis</option>
+              <option class="listF" value="Fakultas Filsafat">Fakultas Filsafat</option>
+              <option class="listF" value="Fakultas Ilmu Komputer">Fakultas Ilmu Komputer</option>
+              <option class="listF" value="Fakultas Keguruan dan Ilmu Pendidikan">Fakultas Keguruan dan Ilmu Pendidikan</option>
+              <option class="listF" value="Fakultas Keperawatan">Fakultas Keperawatan</option>
+              <option class="listF" value="Fakultas Pertanian">Fakultas Pertanian</option>
+              <option class="listF" value="Pascasarjana">Pascasarjana</option>
+          </select>
+          <div class="mt-2 d-grid gap-2">
+            <button id="buttonF" class="btn btn-primary" type="submit">Show Students</button>
+          </div>
+      </div>
+        <div class="list mb-3">
+          <p class="mb-2">Program of Study</p>
+          <select id="filterProdi" class="form-select" aria-label="Default select example">
+              <option selected>SELECT PRODI</option>
+              <option class="list-prodi" value="Agroteknologi">Agroteknologi</option>
+              <option class="list-item" value="Akuntansi">Akuntansi</option>
+              <option class="list-item" value="Ilmu Filsafat">Ilmu Filsafat</option>
+              <option class="list-item" value="Informatika">Informatika</option>
+              <option class="list-item" value="Keperawatan">Keperawatan</option>
+              <option class="list-item" value="Magister Manajemen">Magister Manajemen</option>
+              <option class="list-item" value="Magister Teologi">Magister Teologi</option>
+              <option class="list-item" value="Manajemen">Manajemen</option>
+              <option class="list-item" value="Pendidikan Agama">Pendidikan Agama</option>
+              <option class="list-item" value="Pendidikan Bahasa Inggris">Pendidikan Bahasa Inggris</option>
+              <option class="list-item" value="Pendidikan Ekonomi">Pendidikan Ekonomi</option>
+              <option class="list-item" value="Pendidikan Luar Sekolah">Pendidikan Luar Sekolah</option>
+              <option class="list-item" value="Profesi Ners">Profesi Ners</option>
+              <option class="list-item" value="Sekretari (D3)">Sekretari (D3)</option>
+              <option class="list-item" value="Sistem Informasi">Sistem Informasi</option>
+          </select>
+          <div class="mt-2 d-grid gap-2">
+            <button id="buttonP" class="btn btn-primary" type="button">Show Students</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- untuk menampilkan data dari form ke table -->
+    <div class="list-student row pt-4 mt-4">
+    
+      <h1 class="py-4 text-center">Our Students</h1>
+      <input type="text" id="search" onkeyup="tableSearch" placeholder="Search : ">
+      <br><br>
+      <table id="outputData" class="table table-striped mt-3">
+        <tr>
+          <th>Student ID (NIM)</th>
+          <th>Full Name</th>
+          <th>Gender</th>
+          <th>Faculty</th>
+          <th>Program of Study</th>
+          <th>Action</th>
+        </tr>
+        <!-- <tbody> -->
+        <tr>
+          <td class="list-data">105011123456</td>
+          <td class="list-data">John Doe</td>
+          <td class="list-data">Male</td>
+          <td class="list-data">FIK</td>
+          <td class="list-data">Sistem Informasi</td>
+          <td class="delete"><a href="#" class="link-danger"><i class="bi bi-trash"></i></a></td>
+        </tr>
+        <tr>
+          <td class="list-data">105011123476</td>
+          <td class="list-data">Tes user2</td>
+          <td class="list-data">Male</td>
+          <td class="list-data">FIK</td>
+          <td class="list-data">Sistem Informasi</td>
+          <td class="delete"><a href="#" class="link-danger"><i class="bi bi-trash"></i></a></td>
+        </tr>
+        <tr>
+          <td class="list-data">105011123434</td>
+          <td class="list-data">Tes user3</td>
+          <td class="list-data">Male</td>
+          <td class="list-data">FIK</td>
+          <td class="list-data">Informatika</td>
+          <td class="delete"><a href="#" class="link-danger"><i class="bi bi-trash"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- untuk bagian footernya -->
+  <footer class="py-1 mt-5 bg-primary bg-gradient text-white" id="footer">
+    <br>
+    <p class="text-center text-uppercase">by Ester Sangkoy 2021 <i class="fab fa-instagram"></i> <i class="fab fa-facebook-f"></i></p>
+  </footer>
+
+  <!-- untuk link ke javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+</body>
+</html>
